@@ -1,0 +1,390 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('Untitled\ design.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+#resetButton {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 20px;
+    background-color: #ff4747;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#resetButton:hover {
+    background-color: #ff2f2f;
+}
+
+#main {
+    margin-top: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+}
+
+#board {
+    width: 550px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 200px;
+    border-radius: 15px;
+    border: 5px solid #2c3e50;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #1abc9c, #16a085);
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#board::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+#board:hover {
+    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+}
+
+#board:focus-within {
+    border: 5px solid #f39c12;
+}
+
+#board > .player, #board > #dice {
+    margin: 10px 0;
+    padding: 10px;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.player {
+    margin: 15px 0;
+    padding: 12px 24px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #4caf50, #388e3c);
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: block;
+}
+
+button {
+    background-color: #f39c12;
+    border: none;
+    border-radius: 12px;
+    padding: 15px 30px;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#row1 {
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+
+#row2 {
+    display: flex;
+    width: 100%;
+    height: 20%;
+}
+
+#row3 {
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
+
+#green, #yellow, #red, #blue {
+    width: 40%;
+    padding: 5px;
+}
+
+.inner {
+    border-radius: 20px;
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+#upper, #lower {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    padding: 5%;
+    justify-content: space-between;
+}
+
+.g_green, .g_yellow, .g_red, .g_blue {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    width: 100%;
+    height: 100%;
+    margin-right: 10%;
+    box-shadow: 3px 3px 3px 3px gray;
+}
+
+#yellow_move, #red_move, #green_move, #blue_move {
+    display: grid;
+    width: 20%;
+    height: 100%;
+    grid-template-columns: 33% 33% 33%;
+}
+
+#green_move, #blue_move {
+    display: grid;
+    width: 40%;
+    height: 100%;
+    grid-template-rows: 33% 33% 33%;
+    grid-template-columns: 16.5% 16.5% 16.5% 16.5% 16.5% 16.5%;
+}
+
+.box {
+    width: 100%;
+    height: 100%;
+    border: 1px solid black;
+}
+
+.box-y {
+    background-color: yellow;
+}
+
+.box-g {
+    background-color: green;
+}
+
+.box-b {
+    background-color: blue;
+}
+
+.box-r {
+    background-color: red;
+}
+
+#multicolor {
+    width: 115px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("ludologo.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#dice {
+    display: inline-block;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+#die {
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 2px solid #ccc;
+    border-radius: 20px; /* Square Shape */
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+#die:hover {
+    background-color: #f5f5f5;
+    transform: scale(1.1);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#die:active {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+#die.red {
+    box-shadow: 0px 4px 12px rgba(231, 76, 60, 0.9);
+}
+
+#die.green {
+    box-shadow: 0px 4px 12px rgba(46, 204, 113, 0.9);
+}
+
+#die.yellow {
+    box-shadow: 0px 4px 12px rgba(241, 196, 15, 0.9);
+}
+
+#die.blue {
+    box-shadow: 0px 4px 12px rgba(52, 152, 219, 0.9);
+}
+
+#message {
+    font-size: 18px;
+    color: #333;
+    margin-top: 10px;
+}
+
+#board-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: auto;
+    z-index: -1;
+}
+
+#b1, #b2, #b3, #b4 {
+    background-image: linear-gradient(blue, rgb(0, 110, 255));
+    border: 2px solid black;  /* Add this line for black border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+
+#b1:hover, #b2:hover, #b3:hover, #b4:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+#g1, #g2, #g3, #g4 {
+    background-image: linear-gradient(green, rgb(94, 255, 0));
+    border: 2px solid black;  /* Add this line for black border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+#g1:hover, #g2:hover, #g3:hover, #g4:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+#r1, #r2, #r3, #r4 {
+    background-image: linear-gradient(red, rgb(255, 191, 172));
+    border: 2px solid black;  /* Add this line for black border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    margin: 2px;
+    margin: auto;
+    z-index: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+#r1:hover, #r2:hover, #r3:hover, #r4:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+#y1, #y2, #y3, #y4 {
+    background-image: linear-gradient(yellow, rgb(255, 166, 0));
+    border: 2px solid black;  /* Add this line for black border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 90%;
+    height: 90%;
+    margin: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+#y1:hover, #y2:hover, #y3:hover, #y4:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+}
